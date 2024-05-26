@@ -6,13 +6,12 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 09:33:10 by akeryan           #+#    #+#             */
-/*   Updated: 2024/05/26 18:01:52 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/05/26 18:51:32 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Bureaucrat.hpp"
-
 
 Bureaucrat::Bureaucrat(): _name("Default"), _grade(150) 
 {
@@ -78,7 +77,27 @@ void Bureaucrat::decrementGrade(void)
 	this->_grade++;
 }
 
+void Bureaucrat::signForm(Form &form)
+{
+	try {
+		form.beSigned(*this);
+		std::cout	<< "Bueraucrat " << this->getName()
+					<< "signed " << form.getName()
+					<< std::endl;
+	} catch (GradeTooLowException) {
+		std::cout	<< "Bureaucrat " << this->getName()
+					<< " couldn't sign " << form.getName()
+					<< " because " << this->getName()
+					<< " needs to have grade >= " << form.getGradeToSign()
+					<< std::endl;
+		throw ;		
+	}
+}
+
 std::ostream &operator<<(std::ostream &osObj, const Bureaucrat &obj) {
-	osObj << obj.getName() << ", bureaucrat grade " << obj.getGrade() << ".";
+	osObj	<< "Bueraucrat name: " << obj.getName() 
+			<< ", grade: " << obj.getGrade() 
+			<< "." << std::endl;
 	return osObj;
 }
+

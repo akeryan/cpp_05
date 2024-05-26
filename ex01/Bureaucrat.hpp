@@ -14,26 +14,11 @@
 # define BUREAUCRAT_HPP
 
 # include <string>
+# include "Form.hpp"
 
 class Bureaucrat
 {
 	public:
-
-		Bureaucrat();
-		Bureaucrat(const std::string name, const int grade);
-		Bureaucrat(const Bureaucrat &obj);
-		const Bureaucrat &operator=(const Bureaucrat &obj);
-		~Bureaucrat();
-
-	// getters
-		std::string getName(void) const;
-		int getGrade(void) const;
-
-	// other
-		void incrementGrade(void);
-		void decrementGrade(void);
-		
-	//nested classes:
 		class GradeTooHighException: public std::exception
 		{
 			public:
@@ -59,6 +44,18 @@ class Bureaucrat
 			private:
 				const char *_msg;	
 		};
+		Bureaucrat();
+		Bureaucrat(const std::string name, const int grade);
+		Bureaucrat(const Bureaucrat &obj);
+		const Bureaucrat &operator=(const Bureaucrat &obj);
+		~Bureaucrat();
+	// getters
+		std::string getName(void) const;
+		int getGrade(void) const;
+	// other
+		void incrementGrade(void);
+		void decrementGrade(void);
+		void signForm(Form &form);
 	private:
 		const std::string _name;
 		int	_grade;
