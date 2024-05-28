@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 09:33:10 by akeryan           #+#    #+#             */
-/*   Updated: 2024/05/26 18:01:52 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/05/28 17:04:07 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &obj)
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "Bureaucrat destructor called" << std::endl;
+	std::cout << "Bureaucrat destructor for \"" << this->getName() << "\" is called" << std::endl;
 }
 
 std::string Bureaucrat::getName(void) const
@@ -66,6 +66,7 @@ int Bureaucrat::getGrade(void) const
 
 void Bureaucrat::incrementGrade(void)
 {
+	std::cout << "IncrementGrade for \"" << this->getName() << "\" is called" << std::endl;
 	if (this->_grade == 1)
 		throw GradeTooHighException("Grade has the highest value (1), and cannot be incremented further");
 	this->_grade--;
@@ -73,8 +74,9 @@ void Bureaucrat::incrementGrade(void)
 
 void Bureaucrat::decrementGrade(void)
 {
-	if (this->_grade ==150)
-		throw GradeTooLowException();
+	std::cout << "DecrementGrade for \"" << this->getName() << "\" is called" << std::endl;
+	if (this->_grade == 150)
+		throw GradeTooLowException("Grade has the lowest value (150), and cannot be decremented further");
 	this->_grade++;
 }
 

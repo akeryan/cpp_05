@@ -47,6 +47,7 @@ class Bureaucrat
 		{
 			public:
 				GradeTooLowException():_msg("Grade is too LOW") {};
+				GradeTooLowException(const char *str):_msg(str) { }
 				const char *what(void) const throw() { return _msg; }
 			private:
 				const char *_msg;	

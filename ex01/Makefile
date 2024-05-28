@@ -6,20 +6,22 @@
 #    By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/26 08:41:08 by akeryan           #+#    #+#              #
-#    Updated: 2024/05/26 12:38:31 by akeryan          ###   ########.fr        #
+#    Updated: 2024/05/26 19:09:19 by akeryan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = exec 
 
-CXXFLAGS =  -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
+CXXFLAGS =  -Wall -Wextra -Werror -std=c++98
 CXX = c++
 RM = rm -rf
 
 SRC_FILES = main.cpp	\
-			Bureaucrat.cpp	
+			Bureaucrat.cpp	\
+			Form.cpp	
 
-INCLUDE_FILES = Bureaucrat.hpp	
+INCLUDE_FILES = Bureaucrat.hpp	\
+				Form.hpp	
 
 OBJ = $(patsubst %.cpp, %.o, $(SRC_FILES))
 
