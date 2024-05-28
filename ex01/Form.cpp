@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:41:37 by akeryan           #+#    #+#             */
-/*   Updated: 2024/05/28 17:49:24 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/05/28 19:34:50 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,36 @@ Form::Form(std::string name, int gradeToSign, int gradeToExecute):
 				_name(name), _isSigned(false), _gradeToSign(gradeToSign), 
 				_gradeToExecute(gradeToExecute)
 {
-	std::cout << "Form constructor is called" << std::endl;
-	if (name.empty()) {
-		throw (EmptyStringException());
+	std::cout << "Form constructor is called, form \"" << this->getName() << "\" is attempted to be created" << std::endl;
+	try {
+		if (name.empty()) {
+			throw (EmptyStringException());
+		}
+		if (gradeToExecute < 1 || gradeToSign < 1) {
+			throw (GradeTooHighException());
+		}
+		if (gradeToExecute > 150 || gradeToSign > 150) {
+			throw (GradeTooLowException());
+		}
 	}
-	if (gradeToExecute < 1 || gradeToSign < 1) {
-		throw (GradeTooHighException());
+	catch (GradeTooLowException) {
+		std::cout	<< "<EXCEPTION> Form " << name 
+					<< " failed to be created: grade " << gradeToSign
+					<< " is too LOW and needs to be higher" << std::endl;
+		throw ;
 	}
-	if (gradeToExecute > 150 || gradeToSign > 150) {
-		throw (GradeTooLowException());
+	catch (GradeTooHighException) {
+		std::cout	<< "<EXCEPTION> Form " << name 
+					<< " failed to be created: grade " << gradeToExecute 
+					<< " is too HIGH and needs to be lower" << std::endl;
+		throw ;
 	}
+	catch (EmptyStringException) {
+		std::cout	<< "<EXCEPTION> Form " << name 
+					<< " failed to be created, since the name is an empty string " << std::endl;
+		throw ;
+	}
+	std::cout << "Form " << name << " is created" << std::endl;
 }
 
 Form::Form(const Form &obj):	_name(obj.getName()), 
@@ -54,7 +74,7 @@ const Form &Form::operator=(const Form &other)
 
 Form::~Form() 
 {
-	std::cout << "Form destructor is called" << std::endl;
+	std::cout << "Form destructor is called, object \"" << this->getName() << "\" destroyed" << std::endl;
 }
 
 std::string Form::getName(void) const
@@ -77,10 +97,10 @@ int Form::getGradeToSign(void) const
 	return this->_gradeToSign;
 }
 
-void Form::beSigned(const Bureaucrat &obj)
+void Form::beSigned(const Bureaucrat &be)
 {
-	if (obj.getGrade() > this->getGradeToSign()) {
-		throw (GradeTooLowException());
+	if (be.getGrade() > this->getGradeToSign()) {
+		throw (Form::GradeTooLowException());
 	}
 	this->_isSigned = true;
 }
@@ -90,8 +110,7 @@ std::ostream &operator<<(std::ostream &osObj, const Form &obj)
 	osObj	<< "Form name: " << obj.getName() 
 			<< ", grade to sign: " << obj.getGradeToSign()
 			<< ", grede to execute: " << obj.getGradeToExecute()
-			<< ", is signed?: " << obj.getSignatureStatus() 
-			<< std::endl;	
+			<< ", is signed?: " << obj.getSignatureStatus();
 	return osObj;
 }
 

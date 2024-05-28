@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 09:33:10 by akeryan           #+#    #+#             */
-/*   Updated: 2024/05/28 17:07:35 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/05/28 19:18:10 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,14 @@
 
 Bureaucrat::Bureaucrat(): _name("Default"), _grade(150) 
 {
-	std::cout <<"Bureaucrat default constructor called: _name = 'Default', _grade = 150" << std::endl;
+	std::cout <<"Bureaucrat default constructor called: name = 'Default', grade = 150" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string name, const int grade): _name(name)
 {
-	std::cout << "Bureaucrat constructor called: _name: " << name << ", _grade: " << grade << std::endl;
+	std::cout	<< "Bureaucrat constructor called, object: " << name 
+				<< " with grade: " << grade 
+				<< " is attempted to be created" << std::endl;
 	if(name.empty()) {
 		throw EmptyStringException();
 	}
@@ -31,6 +33,8 @@ Bureaucrat::Bureaucrat(const std::string name, const int grade): _name(name)
 		throw GradeTooLowException();
 	}
 	this->_grade = grade;
+	std::cout	<< "Bureaucrat " << name
+				<< " is created" << std::endl; 
 }
 
 const Bureaucrat &Bureaucrat::operator=(const Bureaucrat &obj)
@@ -50,7 +54,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &obj)
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "Bureaucrat destructor for \"" << this->getName() << "\" is called" << std::endl;
+	std::cout << "Bureaucrat destructor is called, object \"" << this->getName() << "\" destroyed" << std::endl;
 }
 
 std::string Bureaucrat::getName(void) const
@@ -82,12 +86,15 @@ void Bureaucrat::decrementGrade(void)
 void Bureaucrat::signForm(Form &form)
 {
 	try {
+		std::cout	<< "Bureaucrat " << this->getName()
+					<< " attempts to sign form " << form.getName()
+					<< std::endl;
 		form.beSigned(*this);
 		std::cout	<< "Bueraucrat " << this->getName()
-					<< "signed " << form.getName()
+					<< " signed " << form.getName()
 					<< std::endl;
-	} catch (GradeTooLowException) {
-		std::cout	<< "Bureaucrat " << this->getName()
+	} catch (Form::GradeTooLowException) {
+		std::cout	<< "<EXCEPTION>: Bureaucrat " << this->getName()
 					<< " couldn't sign " << form.getName()
 					<< " because " << this->getName()
 					<< " needs to have grade >= " << form.getGradeToSign()
