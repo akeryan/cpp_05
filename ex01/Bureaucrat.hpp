@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/26 08:43:03 by akeryan           #+#    #+#             */
-/*   Updated: 2024/05/26 14:08:22y akeryan          ###   ########.fr       */
+/*   Created: 2024/05/28 17:22:53 by akeryan           #+#    #+#             */
+/*   Updated: 2024/05/28 18:00:05 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <string>
 # include "Form.hpp"
+class Form;
 
 class Bureaucrat
 {

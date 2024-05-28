@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:20:18 by akeryan           #+#    #+#             */
-/*   Updated: 2024/05/26 19:00:54 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/05/28 17:59:36 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 
 # include <string>
 # include "Bureaucrat.hpp"
+class Bureaucrat;
 
 class Form 
 {
 	public:
 		Form();
-		Form(std::string name, bool isSigned, int gradeToSign, int gradeToExecute);
+		Form(std::string name, int gradeToSign, int gradeToExecute);
 		Form(const Form &obj);
 		~Form();
 		const Form &operator=(const Form &obj);

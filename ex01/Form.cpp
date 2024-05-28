@@ -6,14 +6,13 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:41:37 by akeryan           #+#    #+#             */
-/*   Updated: 2024/05/26 18:36:55 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/05/28 17:49:24 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
 #include "Form.hpp"
-#include "Bureaucrat.hpp"
 
 Form::Form():	_name("Default"), _isSigned(false), 
 				_gradeToSign(150), _gradeToExecute(150) 
@@ -21,8 +20,8 @@ Form::Form():	_name("Default"), _isSigned(false),
 	std::cout << "Form default constructor is called" << std::endl;
 }
 
-Form::Form(std::string name, bool isSigned, int gradeToSign, int gradeToExecute):
-				_name(name), _gradeToSign(gradeToSign), 
+Form::Form(std::string name, int gradeToSign, int gradeToExecute):
+				_name(name), _isSigned(false), _gradeToSign(gradeToSign), 
 				_gradeToExecute(gradeToExecute)
 {
 	std::cout << "Form constructor is called" << std::endl;
@@ -35,12 +34,11 @@ Form::Form(std::string name, bool isSigned, int gradeToSign, int gradeToExecute)
 	if (gradeToExecute > 150 || gradeToSign > 150) {
 		throw (GradeTooLowException());
 	}
-	_isSigned = isSigned;	
 }
 
 Form::Form(const Form &obj):	_name(obj.getName()), 
-								_gradeToExecute(obj.getGradeToExecute()),
-								_gradeToSign(obj.getGradeToExecute())
+								_gradeToSign(obj.getGradeToExecute()),
+								_gradeToExecute(obj.getGradeToExecute())
 {
 	std::cout << "Form copy constructor is called" << std::endl;
 	*this = obj;

@@ -6,7 +6,7 @@
 #    By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/26 08:41:08 by akeryan           #+#    #+#              #
-#    Updated: 2024/05/26 19:09:19 by akeryan          ###   ########.fr        #
+#    Updated: 2024/05/28 17:20:25 by akeryan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,9 @@ SRC_FILES = main.cpp	\
 			Bureaucrat.cpp	\
 			Form.cpp	
 
-INCLUDE_FILES = Bureaucrat.hpp	\
-				Form.hpp	
+INCLUDE_FILES = Form.hpp	\
+				Bureaucrat.hpp	
+					
 
 OBJ = $(patsubst %.cpp, %.o, $(SRC_FILES))
 
