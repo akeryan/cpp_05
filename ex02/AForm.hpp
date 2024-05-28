@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/26 16:20:18 by akeryan           #+#    #+#             */
-/*   Updated: 2024/05/28 19:47:07 by akeryan          ###   ########.fr       */
+/*   Created: 2024/05/28 19:48:01 by akeryan           #+#    #+#             */
+/*   Updated: 2024/05/28 19:48:29 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef A_FORM_HPP
+# define A_FORM_HPP
 
 # include <string>
 # include "Bureaucrat.hpp"
 class Bureaucrat;
 
-class Form 
+class AForm 
 {
 	public:
-		Form();
-		Form(std::string name, int gradeToSign, int gradeToExecute);
-		Form(const Form &obj);
-		~Form();
+		AForm();
+		AForm(std::string name, int gradeToSign, int gradeToExecute);
+		AForm(const Form &obj);
+		~AForm();
 		const Form &operator=(const Form &obj);
 
 	//getters:
