@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 19:49:01 by akeryan           #+#    #+#             */
-/*   Updated: 2024/05/28 19:49:58 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/05/30 15:23:25 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 AForm::AForm():	_name("Default"), _isSigned(false), 
 				_gradeToSign(150), _gradeToExecute(150) 
 { 
-	std::cout << "Form default constructor is called" << std::endl;
+	std::cout << "Abstract_Form default constructor is called" << std::endl;
 }
 
-AForm::AForm(std::string name, int gradeToSign, int gradeToExecute):
+AForm::AForm(const std::string name, const int gradeToSign, const int gradeToExecute):
 				_name(name), _isSigned(false), _gradeToSign(gradeToSign), 
 				_gradeToExecute(gradeToExecute)
 {
-	std::cout << "Form constructor is called, form \"" << this->getName() << "\" is attempted to be created" << std::endl;
+	std::cout << "Abstract_Form constructor is called, form \"" << this->getName() << "\" is attempted to be created" << std::endl;
 	try {
 		if (name.empty()) {
 			throw (EmptyStringException());
@@ -56,7 +56,7 @@ AForm::AForm(std::string name, int gradeToSign, int gradeToExecute):
 	std::cout << "Form " << name << " is created" << std::endl;
 }
 
-AForm::AForm(const Form &obj):	_name(obj.getName()), 
+AForm::AForm(const AForm &obj):	_name(obj.getName()), 
 								_gradeToSign(obj.getGradeToExecute()),
 								_gradeToExecute(obj.getGradeToExecute())
 {
@@ -64,7 +64,7 @@ AForm::AForm(const Form &obj):	_name(obj.getName()),
 	*this = obj;
 }
 
-const AForm &AForm::operator=(const Form &other)
+const AForm &AForm::operator=(const AForm &other)
 {
 	if (this != &other) {
 		this->_isSigned = other.getSignatureStatus();
@@ -77,35 +77,27 @@ AForm::~AForm()
 	std::cout << "Form destructor is called, object \"" << this->getName() << "\" destroyed" << std::endl;
 }
 
-std::string Form::getName(void) const
+std::string AForm::getName(void) const
 {
 	return this->_name;
 }
 
-bool Form::getSignatureStatus(void) const
+bool AForm::getSignatureStatus(void) const
 {
 	return this->_isSigned;
 }
 
-int Form::getGradeToExecute(void) const
+int AForm::getGradeToExecute(void) const
 {
 	return this->_gradeToExecute;
 }
 
-int Form::getGradeToSign(void) const
+int AForm::getGradeToSign(void) const
 {
 	return this->_gradeToSign;
 }
 
-void Form::beSigned(const Bureaucrat &be)
-{
-	if (be.getGrade() > this->getGradeToSign()) {
-		throw (Form::GradeTooLowException());
-	}
-	this->_isSigned = true;
-}
-
-std::ostream &operator<<(std::ostream &osObj, const Form &obj)
+std::ostream &operator<<(std::ostream &osObj, const AForm &obj)
 {
 	osObj	<< "Form name: " << obj.getName() 
 			<< ", grade to sign: " << obj.getGradeToSign()

@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:41:37 by akeryan           #+#    #+#             */
-/*   Updated: 2024/05/28 19:34:50 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/05/30 10:13:25 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Form::Form():	_name("Default"), _isSigned(false),
 	std::cout << "Form default constructor is called" << std::endl;
 }
 
-Form::Form(std::string name, int gradeToSign, int gradeToExecute):
+Form::Form(const std::string name, const int gradeToSign, const int gradeToExecute):
 				_name(name), _isSigned(false), _gradeToSign(gradeToSign), 
 				_gradeToExecute(gradeToExecute)
 {

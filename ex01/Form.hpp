@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:20:18 by akeryan           #+#    #+#             */
-/*   Updated: 2024/05/28 19:47:07 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/05/30 10:13:06 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Form
 {
 	public:
 		Form();
-		Form(std::string name, int gradeToSign, int gradeToExecute);
+		Form(const std::string name, const int gradeToSign, const int gradeToExecute);
 		Form(const Form &obj);
 		~Form();
 		const Form &operator=(const Form &obj);

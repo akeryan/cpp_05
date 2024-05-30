@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 19:48:01 by akeryan           #+#    #+#             */
-/*   Updated: 2024/05/28 19:48:29 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/05/30 15:25:36 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ class AForm
 {
 	public:
 		AForm();
-		AForm(std::string name, int gradeToSign, int gradeToExecute);
+		AForm(const std::string name, const int gradeToSign, const int gradeToExecute);
 		AForm(const Form &obj);
 		~AForm();
-		const Form &operator=(const Form &obj);
+		const AForm &operator=(const AForm &obj);
 
 	//getters:
 		std::string getName(void) const;
@@ -33,7 +33,7 @@ class AForm
 		int getGradeToExecute(void) const;
 	
 	//other:
-		void beSigned(const Bureaucrat &obj);
+		virtual void beSigned(const Bureaucrat &obj) = 0;
 
 	//nested classes:	
 		class GradeTooHighException: public std::exception
@@ -61,7 +61,7 @@ class AForm
 			private:
 				const char *_msg;	
 		};
-	private:
+	protected:
 		const std::string _name;
 		bool _isSigned;
 		const int _gradeToSign;
