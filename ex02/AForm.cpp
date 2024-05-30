@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 19:49:01 by akeryan           #+#    #+#             */
-/*   Updated: 2024/05/30 15:23:25 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/05/30 19:33:21 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ AForm::AForm(const std::string name, const int gradeToSign, const int gradeToExe
 					<< " failed to be created, since the name is an empty string " << std::endl;
 		throw ;
 	}
-	std::cout << "Form " << name << " is created" << std::endl;
+	std::cout << "AForm \"" << name << "\" is created" << std::endl;
 }
 
 AForm::AForm(const AForm &obj):	_name(obj.getName()), 
@@ -74,7 +74,8 @@ const AForm &AForm::operator=(const AForm &other)
 
 AForm::~AForm() 
 {
-	std::cout << "Form destructor is called, object \"" << this->getName() << "\" destroyed" << std::endl;
+	std::cout	<< "AForm destructor is called, object \"" << this->getName() 
+				<< "\" destroyed" << std::endl;
 }
 
 std::string AForm::getName(void) const
@@ -106,7 +107,27 @@ std::ostream &operator<<(std::ostream &osObj, const AForm &obj)
 	return osObj;
 }
 
+void AForm::setSignatureStatus(const bool status)
+{
+	this->_isSigned = status;
+}
 
-
-
-
+int AForm::execute(Bureaucrat const &executor) const
+{
+	try {
+		std::cout << "AForm's execute() function called" << std::endl;
+		if (this->getSignatureStatus() == false) {
+			std::cout	<< "Unable to execute form \"" << this->getName() 
+						<< "\" since it is not signed" << std::endl;
+			return 1;
+		} else if (executor.getGrade() > this->getGradeToExecute())
+			throw (AForm::GradeTooLowException());
+		this->_execute();
+	} catch (AForm::GradeTooLowException) {
+		std::cout	<< "<EXCEPTION>: The form \"" << this->getName()
+					<< "\" cannot be signed since " << executor.getName()
+					<< " required to have higher grade" << std::endl;
+		throw ;
+	}
+	return 0;
+}
