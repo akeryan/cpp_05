@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 10:01:40 by akeryan           #+#    #+#             */
-/*   Updated: 2024/05/30 19:42:11 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/05/31 08:26:25 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class ShrubberyCreationForm: public AForm
 {
 	public:
 		ShrubberyCreationForm();
-		ShrubberyCreationForm(const std::string name, const std::string target);
+		ShrubberyCreationForm(const std::string target);
 		ShrubberyCreationForm(const ShrubberyCreationForm &obj);
 		~ShrubberyCreationForm();
 		const ShrubberyCreationForm &operator=(const ShrubberyCreationForm &other);
@@ -35,4 +35,6 @@ class ShrubberyCreationForm: public AForm
 		std::string _target;
 };
 
+// Overloaded non-member operators
+std::ostream &operator<<(std::ostream &osObj, const ShrubberyCreationForm &obj);
 #endif

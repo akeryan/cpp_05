@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 09:33:10 by akeryan           #+#    #+#             */
-/*   Updated: 2024/05/30 19:23:45 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/05/31 11:05:35 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Bureaucrat::Bureaucrat(const std::string name, const int grade): _name(name)
 		throw GradeTooLowException();
 	}
 	this->_grade = grade;
-	std::cout	<< "Bureaucrat \"" << name
+	std::cout	<< "Bureaucrat object \"" << name
 				<< "\" is created" << std::endl; 
 }
 

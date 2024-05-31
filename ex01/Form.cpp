@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:41:37 by akeryan           #+#    #+#             */
-/*   Updated: 2024/05/30 10:13:25 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/05/31 12:51:28 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ std::ostream &operator<<(std::ostream &osObj, const Form &obj)
 {
 	osObj	<< "Form name: " << obj.getName() 
 			<< ", grade to sign: " << obj.getGradeToSign()
-			<< ", grede to execute: " << obj.getGradeToExecute()
+			<< ", grade to execute: " << obj.getGradeToExecute()
 			<< ", is signed?: " << obj.getSignatureStatus();
 	return osObj;
 }

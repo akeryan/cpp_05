@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 19:49:01 by akeryan           #+#    #+#             */
-/*   Updated: 2024/05/30 19:33:21 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/05/31 13:18:40 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 AForm::AForm():	_name("Default"), _isSigned(false), 
 				_gradeToSign(150), _gradeToExecute(150) 
 { 
-	std::cout << "Abstract_Form default constructor is called" << std::endl;
+	std::cout << "AForm default constructor is called" << std::endl;
 }
 
 AForm::AForm(const std::string name, const int gradeToSign, const int gradeToExecute):
 				_name(name), _isSigned(false), _gradeToSign(gradeToSign), 
 				_gradeToExecute(gradeToExecute)
 {
-	std::cout << "Abstract_Form constructor is called, form \"" << this->getName() << "\" is attempted to be created" << std::endl;
+	std::cout << "AForm constructor is called, form \"" << this->getName() << "\" is attempted to be created" << std::endl;
 	try {
 		if (name.empty()) {
 			throw (EmptyStringException());
@@ -37,35 +37,35 @@ AForm::AForm(const std::string name, const int gradeToSign, const int gradeToExe
 		}
 	}
 	catch (GradeTooLowException) {
-		std::cout	<< "<EXCEPTION> Form " << name 
+		std::cout	<< "<EXCEPTION> AForm " << name 
 					<< " failed to be created: grade " << gradeToSign
 					<< " is too LOW and needs to be higher" << std::endl;
 		throw ;
 	}
 	catch (GradeTooHighException) {
-		std::cout	<< "<EXCEPTION> Form " << name 
+		std::cout	<< "<EXCEPTION> AForm " << name 
 					<< " failed to be created: grade " << gradeToExecute 
 					<< " is too HIGH and needs to be lower" << std::endl;
 		throw ;
 	}
 	catch (EmptyStringException) {
-		std::cout	<< "<EXCEPTION> Form " << name 
+		std::cout	<< "<EXCEPTION> AForm " << name 
 					<< " failed to be created, since the name is an empty string " << std::endl;
 		throw ;
 	}
-	std::cout << "AForm \"" << name << "\" is created" << std::endl;
 }
 
 AForm::AForm(const AForm &obj):	_name(obj.getName()), 
 								_gradeToSign(obj.getGradeToExecute()),
 								_gradeToExecute(obj.getGradeToExecute())
 {
-	std::cout << "Form copy constructor is called" << std::endl;
+	std::cout << "AForm copy constructor is called" << std::endl;
 	*this = obj;
 }
 
 const AForm &AForm::operator=(const AForm &other)
 {
+	std::cout << "AForm assignment operator called" << std::endl;
 	if (this != &other) {
 		this->_isSigned = other.getSignatureStatus();
 	}
@@ -100,9 +100,9 @@ int AForm::getGradeToSign(void) const
 
 std::ostream &operator<<(std::ostream &osObj, const AForm &obj)
 {
-	osObj	<< "Form name: " << obj.getName() 
+	osObj	<< "AForm name: " << obj.getName() 
 			<< ", grade to sign: " << obj.getGradeToSign()
-			<< ", grede to execute: " << obj.getGradeToExecute()
+			<< ", grade to execute: " << obj.getGradeToExecute()
 			<< ", is signed?: " << obj.getSignatureStatus();
 	return osObj;
 }

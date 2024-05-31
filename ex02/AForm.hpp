@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 19:48:01 by akeryan           #+#    #+#             */
-/*   Updated: 2024/05/30 19:35:50 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/05/31 09:21:01 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class AForm
 		AForm();
 		AForm(const std::string name, const int gradeToSign, const int gradeToExecute);
 		AForm(const AForm &obj);
-		~AForm();
+		virtual ~AForm();
 		const AForm &operator=(const AForm &obj);
 
 	//getters:
