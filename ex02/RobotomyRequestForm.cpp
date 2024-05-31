@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 13:52:24 by akeryan           #+#    #+#             */
-/*   Updated: 2024/05/31 16:05:59 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/05/31 16:13:32 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ void RobotomyRequestForm::_execute(void) const
 		std::cout	<< "Robotomy of \"" << this->getTarget()
 					<< "\" failed" << std::endl;
 	}
-	
 }
 
 std::ostream &operator<<(std::ostream &osObj, const RobotomyRequestForm &obj) {

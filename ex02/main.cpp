@@ -6,37 +6,47 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 12:37:54 by akeryan           #+#    #+#             */
-/*   Updated: 2024/05/31 16:07:46 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/05/31 16:51:09 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 #include "Bureaucrat.hpp"
 #include <iostream>
 
 int main(void)
 {
-	Bureaucrat a("Boris", 10);
-	//ShrubberyCreationForm sh2("Street");
-	//std::cout << "STREET TAFGET: " << sh2.getTarget() << std::endl;
-	//std::cout << sh2 << std::endl;
-	//AForm *fPtr = new ShrubberyCreationForm("Park");
+	Bureaucrat a("Boris", 4);
+	AForm *shPtr = new ShrubberyCreationForm("Park");
+	AForm *rPtr = new RobotomyRequestForm("Robo");
+	AForm *pPtr = new PresidentialPardonForm("Bill");
 
-// Printing ShrubberyCreationForm through AForm pointer 
-	//if (ShrubberyCreationForm *shPtr = dynamic_cast<ShrubberyCreationForm *>(fPtr)) {
-		//std::cout << *shPtr << std::endl;
-	//} else {
-		//std::cout << "Failed to cast AForm* to ShrubberyCreationForm*" << std::endl;
-	//}
+	std::cout << std::endl << "SHRUBBERY FORM >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" << std::endl;
+// Printing and Executing ShrubberyCreationForm through AForm pointer 
+	if (ShrubberyCreationForm *newPtr = dynamic_cast<ShrubberyCreationForm *>(shPtr)) {
+		std::cout << *shPtr << std::endl;
+	} else {
+		std::cout << "Failed to cast AForm* to ShrubberyCreationForm*" << std::endl;
+	}
+	a.signForm(*shPtr);
+	a.executeForm(*shPtr);
+	
+	std::cout << std::endl << "ROBOTOMY FORM >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" << std::endl;
+	a.signForm(*rPtr);
+	a.executeForm(*rPtr);	
 
-	//a.signForm(*fPtr);
-	//a.executeForm(*fPtr);
+	std::cout << std::endl << "PRESIDENTIAL FORM >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" << std::endl;
+	a.signForm(*pPtr);
+	a.executeForm(*pPtr);
 
-	RobotomyRequestForm r("roboto");
-	a.signForm(r);
-	a.executeForm(r);
+	std::cout << std::endl << "DONE ----------------------------------------------------" << std::endl;
+
+	delete shPtr;
+	delete rPtr;
+	delete pPtr;
 
 	return 0;
 }

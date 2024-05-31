@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 09:33:10 by akeryan           #+#    #+#             */
-/*   Updated: 2024/05/31 14:10:35 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/05/31 16:32:50 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,5 +110,8 @@ void Bureaucrat::executeForm(AForm const &form)
 {
 	std::cout << "Bureaucrat executeForm() called" << std::endl;
 	form.execute(*this);
+	std::cout	<< "Bureaucrat \"" << this->getName()
+				<< "\" executed \"" << form.getName()
+				<< "\" form" << std::endl;
 }
 
