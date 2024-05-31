@@ -6,7 +6,7 @@
 #    By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/26 08:41:08 by akeryan           #+#    #+#              #
-#    Updated: 2024/05/31 16:28:30 by akeryan          ###   ########.fr        #
+#    Updated: 2024/05/31 18:13:11 by akeryan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,13 +21,15 @@ SRC_FILES = main.cpp	\
 			AForm.cpp	\
 			ShrubberyCreationForm.cpp	\
 			RobotomyRequestForm.cpp	\
-			PresidentialPardonForm.cpp	
+			PresidentialPardonForm.cpp	\
+			Intern.cpp	
 
 INCLUDE_FILES = AForm.hpp	\
 				Bureaucrat.hpp	\
 				ShrubberyCreationForm.hpp	\
 				RobotomyRequestForm.hpp	\
-				PresidentialPardonForm.hpp	
+				PresidentialPardonForm.hpp	\
+				Intern.hpp	
 
 OBJ = $(patsubst %.cpp, %.o, $(SRC_FILES))
 

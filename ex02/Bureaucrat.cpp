@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 09:33:10 by akeryan           #+#    #+#             */
-/*   Updated: 2024/05/31 16:32:50 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/05/31 18:30:16 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,9 +109,10 @@ std::ostream &operator<<(std::ostream &osObj, const Bureaucrat &obj) {
 void Bureaucrat::executeForm(AForm const &form)
 {
 	std::cout << "Bureaucrat executeForm() called" << std::endl;
-	form.execute(*this);
-	std::cout	<< "Bureaucrat \"" << this->getName()
-				<< "\" executed \"" << form.getName()
-				<< "\" form" << std::endl;
+	if (form.execute(*this)) {
+		std::cout	<< "Bureaucrat \"" << this->getName()
+					<< "\" executed \"" << form.getName()
+					<< "\" form" << std::endl;
+	}
 }
 

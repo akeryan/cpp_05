@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 19:49:01 by akeryan           #+#    #+#             */
-/*   Updated: 2024/05/31 14:11:25 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/05/31 18:32:35 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,9 +125,9 @@ int AForm::execute(Bureaucrat const &executor) const
 	try {
 		std::cout << "AForm's execute() function called" << std::endl;
 		if (this->getSignatureStatus() == false) {
-			std::cout	<< "Unable to execute form \"" << this->getName() 
+			std::cout	<< "<ERROR>: Unable to execute form \"" << this->getName() 
 						<< "\" since it is not signed" << std::endl;
-			return 1;
+			return 0;
 		} else if (executor.getGrade() > this->getGradeToExecute())
 			throw (AForm::GradeTooLowException());
 		this->_execute();
@@ -137,5 +137,5 @@ int AForm::execute(Bureaucrat const &executor) const
 					<< " required to have higher grade" << std::endl;
 		throw ;
 	}
-	return 0;
+	return 1;
 }
