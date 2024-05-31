@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 19:48:01 by akeryan           #+#    #+#             */
-/*   Updated: 2024/05/31 09:21:01 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/05/31 14:05:20 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define A_FORM_HPP
 
 # include <string>
+# include <iostream>
 # include "Bureaucrat.hpp"
 class Bureaucrat;
 
@@ -36,7 +37,7 @@ class AForm
 		void setSignatureStatus(const bool status);
 	
 	//other:
-		virtual void beSigned(const Bureaucrat &obj) = 0;
+		void beSigned(const Bureaucrat &obj);
 		int execute(Bureaucrat const & executor) const;
 		virtual void _execute(void) const = 0;
 

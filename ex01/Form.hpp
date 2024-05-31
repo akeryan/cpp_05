@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:20:18 by akeryan           #+#    #+#             */
-/*   Updated: 2024/05/30 17:17:44 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/05/31 13:50:48 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FORM_HPP
 
 # include <string>
+# include <iostream>
 # include "Bureaucrat.hpp"
 class Bureaucrat;
 

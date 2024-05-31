@@ -6,13 +6,14 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 17:22:53 by akeryan           #+#    #+#             */
-/*   Updated: 2024/05/28 19:05:56 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/05/31 13:50:30 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
+# include <iostream>
 # include <string>
 # include "Form.hpp"
 class Form;

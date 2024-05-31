@@ -6,12 +6,10 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 16:41:37 by akeryan           #+#    #+#             */
-/*   Updated: 2024/05/31 12:51:28 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/05/31 13:50:43 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
 #include "Form.hpp"
 
 Form::Form():	_name("Default"), _isSigned(false), 

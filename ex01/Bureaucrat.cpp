@@ -6,11 +6,10 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 09:33:10 by akeryan           #+#    #+#             */
-/*   Updated: 2024/05/28 19:18:10 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/05/31 13:50:23 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat(): _name("Default"), _grade(150) 

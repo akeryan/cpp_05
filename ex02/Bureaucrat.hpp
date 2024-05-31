@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 17:22:53 by akeryan           #+#    #+#             */
-/*   Updated: 2024/05/31 08:20:47 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/05/31 13:49:07 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define BUREAUCRAT_HPP
 
 # include <string>
+# include <iostream>
 # include "AForm.hpp"
 class AForm;
 

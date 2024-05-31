@@ -6,14 +6,11 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 10:07:04 by akeryan           #+#    #+#             */
-/*   Updated: 2024/05/31 13:37:54 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/05/31 14:06:56 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
-#include <iostream>
-#include <fstream>
-#include <string>
 
 ShrubberyCreationForm::ShrubberyCreationForm(): AForm("Default", 145, 137)
 {
@@ -56,13 +53,6 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 	std::cout	<< "ShrubberyCreationForm destructor called, object \"" << this->getName() 
 				<< "\" with target \"" << this->getTarget()
 				<< "\" destroyed" << std::endl;
-}
-
-void ShrubberyCreationForm::beSigned(const Bureaucrat &be)
-{
-	if (be.getGrade() > this->getGradeToSign())
-		throw (AForm::GradeTooLowException());
-	this->setSignatureStatus(true);
 }
 
 std::string ShrubberyCreationForm::getTarget(void) const

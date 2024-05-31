@@ -6,7 +6,7 @@
 #    By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/26 08:41:08 by akeryan           #+#    #+#              #
-#    Updated: 2024/05/30 18:00:47 by akeryan          ###   ########.fr        #
+#    Updated: 2024/05/31 16:08:29 by akeryan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,11 +19,13 @@ RM = rm -rf
 SRC_FILES = main.cpp	\
 			Bureaucrat.cpp	\
 			AForm.cpp	\
-			ShrubberyCreationForm.cpp	
+			ShrubberyCreationForm.cpp	\
+			RobotomyRequestForm.cpp	
 
 INCLUDE_FILES = AForm.hpp	\
 				Bureaucrat.hpp	\
-				ShrubberyCreationForm.hpp	
+				ShrubberyCreationForm.hpp	\
+				RobotomyRequestForm.hpp	
 
 OBJ = $(patsubst %.cpp, %.o, $(SRC_FILES))
 

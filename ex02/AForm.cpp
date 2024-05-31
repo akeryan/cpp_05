@@ -6,12 +6,10 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 19:49:01 by akeryan           #+#    #+#             */
-/*   Updated: 2024/05/31 13:18:40 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/05/31 14:11:25 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
 #include "AForm.hpp"
 
 AForm::AForm():	_name("Default"), _isSigned(false), 
@@ -96,6 +94,16 @@ int AForm::getGradeToExecute(void) const
 int AForm::getGradeToSign(void) const
 {
 	return this->_gradeToSign;
+}
+
+void AForm::beSigned(const Bureaucrat &obj)
+{
+	if (obj.getGrade() > this->getGradeToSign())
+		throw (AForm::GradeTooLowException());
+	this->setSignatureStatus(true);
+	std::cout	<< "Bueraucrat " << obj.getName()
+				<< " signed " << this->getName()
+				<< std::endl;
 }
 
 std::ostream &operator<<(std::ostream &osObj, const AForm &obj)
