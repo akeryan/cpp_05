@@ -6,7 +6,7 @@
 /*   By: akeryan <akeryan@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 12:37:54 by akeryan           #+#    #+#             */
-/*   Updated: 2024/05/28 17:04:47 by akeryan          ###   ########.fr       */
+/*   Updated: 2024/05/31 19:18:19 by akeryan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int main(void)
 	try {
 	// assigning too low grade
 		Bureaucrat d("Alex", -5);
+
 	// assigning loo high grade
 		Bureaucrat c("Alex", 155);
 
